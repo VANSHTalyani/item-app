@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Items App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="navHome">View Items</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="navAdd">Add Items</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4" id="viewItemsPage">
+    <h2>Items</h2>
+    <div class="row" id="itemsContainer"></div>
+  </div>
+
+  <div class="container mt-4" id="addItemsPage" style="display: none;">
+    <h2>Add Item</h2>
+    <form id="addItemForm" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label">Item Name</label>
+        <input type="text" class="form-control" name="itemName" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Item Type</label>
+        <input type="text" class="form-control" name="itemType" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Item Description</label>
+        <textarea class="form-control" name="itemDescription"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Cover Image</label>
+        <input type="file" class="form-control" name="coverImage" accept="image/*" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Additional Images</label>
+        <input type="file" class="form-control" name="additionalImages" accept="image/*" multiple />
+      </div>
+      <button type="submit" class="btn btn-primary">Add Item</button>
+      <div class="alert alert-success mt-3 d-none" id="successMsg">Item successfully added</div>
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="itemModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalDescription"></p>
+          <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="carouselInner"></div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselImages" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" id="enquireBtn">Enquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content bg-transparent border-0">
+        <button type="button" class="btn-close ms-auto me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        <img id="fullImage" class="w-100 rounded-3" style="object-fit:contain; max-height:90vh;" />
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
