@@ -11,10 +11,6 @@ A full-stack Node.js application to catalogue items (clothes, shoes, sports gear
 * **SQLite** database persistence.
 * Modern Bootstrap 5 UI and custom CSS.
 
-## Screenshots
-
-![screenshot](docs/screenshot.png) <!-- Add your own -->
-
 ## Getting Started
 
 ### Prerequisites
